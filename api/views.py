@@ -158,7 +158,12 @@ def checkout(request):
                 status=status.HTTP_400_BAD_REQUEST,
             )
         cart_items_list = CartItemSerializer(cart_items, many=True).data
-        send_purchase_email.delay(request.user.email, list(cart_items_list))
+        simplified_cart_items = [
+            [item["book"]["title"], item["quantity"], item["book"]["isbn"]]
+            for item in cart_items_list
+        ]
+        # print(simplified_cart_items)
+        send_purchase_email.delay(request.user.email, simplified_cart_items)
 
         cart_items.delete()
         return Response({"message": "Checkout successful."}, status=status.HTTP_200_OK)
