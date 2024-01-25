@@ -12,3 +12,4 @@ And run migrations
 python manage.py migrate
 
 Now you are able to use the API. 
+Note: For the sake of this demo I have not used any env for sensitive information.
