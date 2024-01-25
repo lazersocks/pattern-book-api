@@ -152,6 +152,3 @@ To start using the API, you will need to first register by sending a JSON object
 - **Permissions**: `IsAuthenticated`
 - **Response**: A success message or an error if the checkout fails.
 
-URL: [GET] /checkout/
-Permissions: IsAuthenticated
-Response: A success message or an error if the checkout fails.
