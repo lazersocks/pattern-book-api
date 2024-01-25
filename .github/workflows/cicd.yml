@@ -23,7 +23,7 @@ jobs:
       - name: Start the necessary services
         run: docker-compose up -d pgdb redis
 
-      - name: Apply migrations
+      - name: Run Tests
         run: docker-compose run django python manage.py test
 
       # - name: Build the Docker images
