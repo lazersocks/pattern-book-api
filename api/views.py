@@ -46,6 +46,7 @@ class BlacklistTokenUpdateView(APIView):
                 status=status.HTTP_205_RESET_CONTENT,
             )
         except Exception as e:
+            print(e)
             return Response(
                 {"message": "Error logging out."}, status=status.HTTP_400_BAD_REQUEST
             )
