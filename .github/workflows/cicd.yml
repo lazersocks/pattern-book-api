@@ -1,0 +1,33 @@
+name: Django CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.11"
+
+      - name: Build the Docker images
+        run: docker compose run django
+
+      - name: Run the Docker containers
+        run: docker compose up
+
+      - name: Run migrations
+        run: docker exec -it book_api /bin/bash -c "python manage.py migrate"
+
+      - name: Run tests
+        run: python manage.py test
+
+    # Add additional steps for deployment
