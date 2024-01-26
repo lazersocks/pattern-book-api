@@ -154,6 +154,6 @@ To start using the API, you will need to first register by sending a JSON object
 
 ## Tests
 To run the tests run the following command in the api container
-    ```bash
+   ```bash
     python manage.py test
-    ```
+   ```
