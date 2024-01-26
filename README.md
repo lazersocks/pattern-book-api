@@ -1,4 +1,4 @@
-# Bookstore API Documentation
+# Bookstore API with Docker and CI/CD Workflow
 
 ## Getting Started
 
@@ -152,3 +152,8 @@ To start using the API, you will need to first register by sending a JSON object
 - **Permissions**: `IsAuthenticated`
 - **Response**: A success message or an error if the checkout fails.
 
+## Tests
+To run the tests run the following command in the api container
+    ```bash
+    python manage.py test
+    ```
